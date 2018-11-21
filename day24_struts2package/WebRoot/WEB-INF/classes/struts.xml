@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 设置开发模式 -->
+	<constant name="struts.devMode" value="true"></constant>
+	<!-- package：是定义一个struts的包， 把配置文件按照面向对象的思想来管理
+		         name:指定包的名称，在配置文件中唯一
+		         extends：指定当前包的父包，它是按照面向对象管理的体现
+		         abstract：把包声明为一个抽象包，用来被继承，只有缺少action元素的包才能被继承
+		         namespace：名称空间，默认值为"",不是"/",访问路径=名称空间+动作路径
+	-->
+	<package name="p1" extends="struts-default" namespace="/user">
+		<action name="action1" class="com.itheima.web.action.Demo1Action" method="saveUser">
+			<result name="success">/success.jsp</result>
+		</action>
+	</package>
+</struts>

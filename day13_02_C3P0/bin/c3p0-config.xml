@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+	<default-config>
+		<property name="DriverClass">com.mysql.jdbc.Driver</property>
+		<property name="JdbcUrl">jdbc:mysql://localhost:3306/day13</property>
+		<property name="User">root</property>
+		<property name="setPassword">root</property>
+		<property name="initialPoolSize">10</property>
+		<property name="maxPoolSize">10</property>
+		<property name="minPoolSize">1</property>
+		<property name="maxStatements">0</property>
+	</default-config> <!-- This app is massive! -->
+</c3p0-config>

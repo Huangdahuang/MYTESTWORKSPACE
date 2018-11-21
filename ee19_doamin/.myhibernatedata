@@ -1,0 +1,24 @@
+#MyEclipse Hibernate Properties
+#Wed Aug 30 17:06:34 GMT+08:00 2017
+sessionFactoryName=com.itheima.sessionFactory.HibernateSessionFactory
+genBasicCompId=false
+profile=
+daoSFId=
+version=3.3
+jndiPath=
+detectM2M=false
+reStrategyClass=
+detectO2O=false
+springDaoFile=
+useJavaTypes=true
+keyGenerator=uuid
+libInstallFolder=WebRoot/WEB-INF/lib
+addLibs2Project=true
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+genAnnotations=false
+reSettingsFile=
+configFile=/ee19_doamin/src/hibernate.cfg.xml
+createConfigFile=true
+addLibs2Classpath=true

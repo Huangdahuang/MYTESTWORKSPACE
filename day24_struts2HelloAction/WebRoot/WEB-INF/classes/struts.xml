@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 目前照抄 -->
+	<package name="p1" extends="struts-default">
+		<!-- name:对应请求的地址 。注意，没有后缀（和页面上是否写.action没关系）
+			 class:为该名称指定一个动作
+			 method：对应hello要执行的方法
+		-->
+		<action name="hello" class="com.itheima.web.action.HelloAction" method="sayHello">
+			<!--  配置结果视图 -->
+			<result name="success">/success.jsp</result>
+		</action>
+	</package>
+</struts>

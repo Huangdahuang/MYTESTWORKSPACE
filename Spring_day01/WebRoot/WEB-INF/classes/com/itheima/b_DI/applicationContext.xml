@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       					   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 配置service -->
+	<bean id="bookServiceId" class="com.itheima.d_DI.BookServiceImpl">
+		<!--  -->
+		<property name="bookDao" ref="bookDaoId"></property>
+	</bean>
+
+	<!-- 配置dao -->
+	<bean id="bookDaoId" class="com.itheima.d_DI.BookDaoImpl"></bean>
+
+
+</beans>

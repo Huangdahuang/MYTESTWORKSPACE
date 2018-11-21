@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true"/>
+	<package name="p1" extends="struts-default">
+		<action name="action1" class="com.itheima.web.action.Demo1Action">
+			<!-- resulst元素：配置逻辑结果视图 
+					name属性：结果视图名称。与动作方法的返回值对应，当一致前往指定的jsp
+					type属性：结果视图类型。不写的时候，有默认值，默认值是dispatcher 转发。
+						常用取值：
+							dispatcher：请求转发  默认值
+							redirect：重定向
+							chain：转发到另一个动作
+								转发到同包（同名称空间）下的另一个动作
+									<result name="success" type="chain">action2</result>
+								转发到不同包(不同名称空间)下的另一个动作
+									<result name="success" type="chain">
+										使用的是注入的思想，在执行之重定向之前，会先获取这两个参数的值
+										调用的就是setNamespace("/n2")和setActionName("action3")
+										<param name="namespace">/n2</param>
+										<param name="actionName">action3</param>
+									</result>
+							redirectAction：重定向到另一个动作
+								重定向到同包（同名称空间）下的另一个动作
+									<result name="success" type="redirectAction">action2</result>
+								重定向不同包(不同名称空间)下的另一个动作
+								<result name="success" type="redirectAction">
+									使用的是注入的思想，在执行之重定向之前，会先获取这两个参数的值
+									调用的就是setNamespace("/n2")和setActionName("action3")
+									<param name="namespace">/n2</param>
+									<param name="actionName">action3</param>
+								</result>
+			-->
+			<result name="success" type="chain">
+				<param name="namespace">/n2</param>
+				<param name="actionName">action3</param>
+			</result>
+		</action>
+		<action name="action2"><!-- 没有给定动作类，默认的是ActionSupport，没有给定动作方法，默认的是execute -->
+			<result name="success" >
+				<param name="location">/success.jsp</param>
+			</result>
+		</action>		
+	</package>
+	
+	<package name="p2" extends="struts-default" namespace="/n2">
+		<action name="action3">
+			<result name="success" >/success.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 全局结果视图 -->
+	<package name="myDefault" extends="struts-default" abstract="true">
+		<!-- 自定义结果类型 
+			  在包中配置的结果视图，是只能当前包和其子包中使用
+		-->
+		<result-types>
+			<result-type name="captcha" class="com.itheima.web.result.CAPTCHAResult"></result-type>
+		</result-types>
+		<global-results>
+			<!-- 结果视图的查找顺序，先找当前动作类自己的，如果没有的，再去全局的结果视图中查找 -->
+			<result name="success" type="captcha"> 
+				<param name="width">240</param>
+				<param name="height">40</param>
+			</result>
+		</global-results>
+	</package>
+	
+	
+	
+	<!-- 自定义结果类型的配置 -->
+	<package name="p3" extends="myDefault">
+		
+		<action name="captchaAction" class="com.itheima.web.action.CaptchaAction" >
+			<!-- 写在action内部的结果视图，是只能当前动作类使用的 
+			<result name="success" type="captcha">
+				 配置图像的大小 
+				<param name="width">240</param>
+				<param name="height">40</param>
+			</result>
+			-->
+		</action>
+	</package>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</struts>

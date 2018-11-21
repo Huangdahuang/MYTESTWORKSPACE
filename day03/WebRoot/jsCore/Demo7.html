@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<select id="city">
+		<option value="bj">北京</option>
+		<option value="sh">上海</option>
+		<option value="tj">天津</option>
+	</select>
+	
+	<select id="area">
+		<option >海淀区</option>
+		<option >朝阳区</option>
+		<option >东城区</option>
+	</select>
+
+</body>
+
+<script type="text/javascript">
+	
+	var select=document.getElementById("city");
+	select.onchange=function(){
+		var optionVal=select.value;
+		//alert(optionVal);
+		switch(optionVal){
+			case 'bj':
+				var area = document.getElementById("area");
+				area.innerHTML = "<option>海淀区</option><option>朝阳区</option><option>东城区</option>";
+			break;
+			case 'sh':
+				var area = document.getElementById("area");
+				area.innerHTML = "<option>西青</option><option>东南</option><option>大啊</option>";
+			break;
+			case 'tj':
+				var area = document.getElementById("area");
+				area.innerHTML = "<option>xx</option><option>fe</option><option>tr</option>";
+			break;
+			default:
+				alert("error");
+		}
+	};
+	
+	
+	/* var optionVal=select.value;
+	alert(optionVal); */
+</script>
+
+
+</html>

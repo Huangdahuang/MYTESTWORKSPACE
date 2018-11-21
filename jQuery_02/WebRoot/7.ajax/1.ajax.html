@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+	<script type="text/javascript">
+		
+		$(function(){
+			$("input").click(function(){
+				//0.1请求路径
+				var url = "/jQuery_02/SendDataServlet";
+				//0.2请求参数，采用json
+				var params = {"username":"jack","password":"1234"};
+				
+				
+				$(this).load(url,params,function(){
+					var jsonData = eval("(" + data + ")");
+					alert(jsonData.message);
+				});
+				
+			});
+		});
+	</script>
+	
+</head>
+<body>
+	
+	<input type="button" value="发送ajax" />
+	
+	
+</body>
+</html>

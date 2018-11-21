@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<list> 
+  <contacts> 
+    <name>黄志宏</name>  
+    <phone>15855431958</phone>  
+    <eamil>794538296@qq.com</eamil> 
+  </contacts>  
+  <contacts> 
+    <name>wangwei</name>  
+    <phone>125454889</phone>  
+    <eamil>fsdfwefwe@ef.com</eamil> 
+  </contacts>  
+  <contacts> 
+    <name>xiaosan</name>  
+    <phone>123</phone>  
+    <eamil>sdfaf@qq.com</eamil> 
+  </contacts>  
+  <contacts>
+    <name>wangsheng</name>
+    <phone>123456784589</phone>
+    <eamil>sahsgosohg.@cdsg</eamil>
+  </contacts>
+</list>

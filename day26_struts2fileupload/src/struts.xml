@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="ture"></constant>
+	<!-- -限制文件大小 修改default.properties
+		<constant name="struts.multipart.maxSize" value="2097152"/>
+	 -->
+	<constant name="struts.multipart.maxSize" value="5242880"/>
+	<constant name="struts.custom.i18n.resources" value="com.itheima.web.action.fileupload_message.properties"/>
+	<package name="p1" extends="struts-default">
+		<action name="upload" class="com.itheima.web.action.Upload1Action"
+			method="upload">
+			<interceptor-ref name="defaultStack">
+				<param name="fileUpload.allowedExtensions">.jpg,.png,.bmp</param>
+				<param name="fileUpload.allowedTypes">image/jpg,image/pjpeg,image/png</param>
+			</interceptor-ref>
+		</action>
+		
+		<action name="download" class="com.itheima.web.action.DownloadAction"
+			method="download" >
+			<result name="success" type="stream"> 
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename=${filename }</param>
+				<param name="inputName">fileInputStream</param>
+			</result>
+		</action>
+	</package>
+</struts>
+
+
+
+
+
+

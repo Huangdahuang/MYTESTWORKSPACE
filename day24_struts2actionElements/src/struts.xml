@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	<package name="p1" extends="struts-default">
+	    <!--  action是用户定义动作名称，动作类和动作方法的映射，以及出现不同情况前往指定的结果视图 -->
+		<action name="action1" class="com.itheima.web.action.Demo1Action" method="hello">
+			<result name="success">/success.jsp</result>
+		</action>
+		
+		
+		<!--  第三种创建动作类的配置 -->
+		<action name="action3" class="com.itheima.web.action.Demo3Action" >
+			<result name="success">/success.jsp</result>
+		</action>
+		
+		<!-- 访问默认动作类和动作方法的配置 -->
+		<action name="defaultAction" >
+			<result name="success">/success.jsp</result>
+		</action>
+		
+		<!-- 动作方法的配置 -->
+		<!-- <action name="addUser" class="com.itheima.web.action.UserAction" method="addUser">
+			<result name="success">/addUser.jsp</result>
+		</action>
+		<action name="deleteUser" class="com.itheima.web.action.UserAction" method="deleteUser">
+			<result name="success">/deleteUser.jsp</result>
+		</action>
+		<action name="updateUser" class="com.itheima.web.action.UserAction" method="updateUser">
+			<result name="success">/updateUser.jsp</result>
+		</action>
+		<action name="findUser" class="com.itheima.web.action.UserAction" method="findUser">
+			<result name="success">/findUser.jsp</result>
+		</action> -->
+		
+	    <!-- 使用通配符，配置动作方法
+	    	 *：表示侗族哟名称，当有和动作名称匹配的事故可以用{出现位置} 来代替
+	     -->
+	     <action name="*" class="com.itheima.web.action.UserAction" method="{1}">
+			<result name="success">/{1}.jsp</result>
+		</action>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</package>
+</struts>

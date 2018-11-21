@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+	<property name="hibernate.connection.driver_class">
+		com.mysql.jdbc.Driver
+	</property>
+	<property name="hibernate.connection.username">root</property>
+	<property name="hibernate.connection.password">root</property>
+	<property name="hibernate.connection.url">
+		jdbc:mysql://localhost:3306/day29
+	</property>
+
+	<!-- show_sql：操作数据库时，会向控制台打印sql语句 -->
+	<property name="show_sql">true</property>
+
+	<!-- format_sql：操作数据库时，会将sql语句先格式化 -->
+	<property name="format_sql">true</property>
+
+	<!-- hbm2ddl.auto：是否自动生成表结构，生成表结构的策略配置
+		1：hibernate.hbm2ddl.auto update 最常用的取值 同步并矫正
+		如果当前数据库中不存在表结构，自动创建表结构。
+		如果存在表结构，并且表结构与实体一致，那么不做修改；若表结构不一致，那么会修改表结构，会保留原有字段
+		2：hibernate.hbm2ddl.auto create
+		表存在，先删除再创建，程序结束，之前的创建的表不删除
+		3：hibernate.hbm2ddl.auto create-drop
+		与create几乎一样，如果factory.close()执行，将在JVM关闭的同时，将创建的表删除
+		4：hibernate.hbm2ddl.auto validate
+		校验映射文件和表的列是否一致，如果对应正常执行，不对应抛异常
+	-->
+	<property name="hbm2ddl.auto">update</property>
+
+	<!-- 数据库方言配置 hibernate.dialect
+		org.hibernate.dialect.MySQLDialect(选择)
+		org.hibernate.dialect.MySQLInnoDBDialect
+		org.hibernate.dialect.MySQLMyISAMDialect
+	-->
+	<property name="hibernate.dialect"></property>
+
+	<!-- connection.autocommit:事务自动提交 -->
+	<property name="hibernate.connection.autocommit">true</property>
+	<property name="myeclipse.connection.profile">MySql</property>
+	<property name="connection.url">
+		jdbc:mysql://localhost:3306
+	</property>
+	<property name="connection.username">root</property>
+	<property name="connection.password">root</property>
+	<property name="connection.driver_class">
+		com.mysql.jdbc.Driver
+	</property>
+	<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+	<mapping resource="com/itheima/a_hello/User.hbm.xml" />
+
+</session-factory>
+</hibernate-configuration>

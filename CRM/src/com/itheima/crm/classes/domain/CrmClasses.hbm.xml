@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.itheima.crm.classes.domain.CrmClasses" table="crm_classes">
+		<id name="classId">
+			<generator class="uuid"></generator>
+		</id>
+		
+		<!-- 多个班级属于一个课程
+				private CrmCourseType courseType; -->
+		<many-to-one name="courseType" class="com.itheima.crm.coursetype.domain.CrmCourseType" column="courseTypeId"></many-to-one>
+		
+		<property name="name"></property>
+		<property name="beginTime" type="date"></property>
+		<property name="endTime" type="date"></property>
+		
+		<property name="status"></property>
+		<property name="totalCount"></property>
+		<property name="upgradeCount"></property>
+		
+		<property name="changeCount"></property>
+		<property name="runoffCount"></property>
+		<property name="remark"></property>
+		
+		<property name="uploadTime">
+			<column name="uploadTime" sql-type="datetime"></column>
+		</property>
+		<property name="uploadPath"></property>
+		<property name="uploadFilename"></property>
+		
+	</class>
+</hibernate-mapping>
